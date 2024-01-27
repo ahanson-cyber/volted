@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "searchapp",
     "crispy_forms",
     "crispy_bootstrap4",
+    "django_elasticsearch_dsl",
 ]
 
 MIDDLEWARE = [
@@ -133,3 +134,15 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_REDIRECT_URL = "volt-search"
+
+# ELASTICSEARCH
+ELASTICSEARCH_DSL = {
+    "default": {
+        "hosts": "localhost:9200",
+    },
+}
+
+ELASTICSEARCH_DSL_INDEX_SETTINGS = {
+    "number_of_shards": 1,
+    "number_of_replicas": 0,
+}
