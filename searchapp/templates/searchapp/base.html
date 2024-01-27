@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volt MVP</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Left items -->
+    {% if user.is_authenticated %}
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Search<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Articles History</a>
+            </li>
+        </ul>
+
+        <!-- Right items -->
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'volt-logout' %}">Logout</a>
+            </li>
+        </ul>
+    {% else %}
+    <!-- Right items -->
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'volt-login' %}">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'volt-register' %}">Register</a>
+            </li>
+        </ul>
+        {% endif %}
+    </nav>
+
+    <!-- YEET -->
+    <div class="d-flex align-items-center justify-content-center">
+        {% if messages %}
+         {% for message in messages %}
+            <div class="d-flex align-items-center justify-content-center alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>    
+        {% endfor %}
+        {% endif %}
+    </div>
+
+<br> 
+{% block content %}
+{% endblock %}
+</body>
+
+<!-- Bootstrap JS (optional) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</html>
+
+

@@ -1,0 +1,26 @@
+{% extends "searchapp/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <div>
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4">JOIN</legend>
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group text-center">
+                        <button class="btn btn-outline-info" type="submit">Sign Up</button>
+                    </div>
+                </form>
+                <div class="border-top pt-3 text-center">
+                    <small class="text-muted"> Account Already? <a class="ml-2" href="{% url 'volt-login' %}">Login</a></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

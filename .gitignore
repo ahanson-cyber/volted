@@ -1,0 +1,111 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+config.ini
+config.yaml
+
+# Local development settings
+.env
+
+# Database
+db.sqlite3
+*.sqlite3
+
+# Logs and Django Debug Toolbar
+*.log
+*.pot
+*.pyc
+*.pyo
+__pycache__/
+local_settings.py
+
+# Media files
+media/
+
+# Static files
+static/
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Python
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Visual Studio Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Byte-compiled files (keep in __pycache__ directory)
+__pycache__/
+
+# Compiled source files
+*.mo
+*.pot
+
+# Django migrations
+**/migrations/
+
+# Testing
+*.db
+
+# Sphinx documentation
+docs/_build/
+
+# Node.js
+node_modules/
+
+# Compiled TypeScript
+*.js
+
+# Java
+*.class
+
+# Temporary files
+*.tmp
+
+# Package tarball
+*.tar.gz
+
+# Ignore the Pipfile.lock file
+Pipfile.lock
+
+# pipenv
+/.venv/
+
+# Celery Beat schedule file
+celerybeat-schedule
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
