@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <h1 class="text-center">News Search</h1>
-                <form id="searchForm">
+                <form id="searchForm" action="/search/" method="get">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Search for news..." id="searchInput">
                         <div class="input-group-append">
@@ -13,8 +13,46 @@
                         </div>
                     </div>
                 </form>
-                <div id="searchResults" class="mt-3"></div>
+                <div id="searchResults" class="mt-3">
+                    {% if query %}
+                        <h2>Search Results for "{{ query }}"</h2>
+                        {% if articles %}
+                            <ul>
+                                {% for article in articles %}
+                                    <li>
+                                        <h3>{{ article.article_name|safe }}</h3>
+                                        <a href="{{ article.article_link }}" target="_blank">{{ article.article_link }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p>No results found.</p>
+                        {% endif %}
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- search.html -->
+    <script>
+        $(document).ready(function () {
+            // Additional code for autocomplete logic (input event)
+            $("#searchInput").on('input', function () {
+                var query = $(this).val();
+                $.ajax({
+                    url: "/autocomplete/",
+                    data: {'query': query},
+                    success: function (data) {
+                        var resultsHtml = '';
+                        for (var i = 0; i < data.length; i++) {
+                            resultsHtml += '<p>' + data[i] + '</p>';
+                        }
+                        $("#searchResults").html(resultsHtml);
+                    }
+                });
+            });
+        });
+    </script>
+
 {% endblock content %}

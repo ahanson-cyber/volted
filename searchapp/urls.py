@@ -18,4 +18,5 @@ urlpatterns = [
         name="volt-logout",
     ),
     path("search/", views.search, name="volt-search"),
+    path("autocomplete/", views.autocomplete, name="volt-autocomplete"),
 ]
