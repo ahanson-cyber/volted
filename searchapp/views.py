@@ -47,11 +47,12 @@ def search(request):
 def autocomplete(request):
     query = request.GET.get("query", "")
 
-    # Use Elasticsearch DSL to perform autocomplete search
     s = Search(index="articles").query("prefix", article_name=query)
     response = s.execute()
 
-    # Extract titles from the search results
-    titles = [hit.article_name for hit in response]
+    results = [
+        {"article_name": hit.article_name, "article_link": hit.article_link}
+        for hit in response
+    ]
 
-    return JsonResponse(titles, safe=False)
+    return JsonResponse(results, safe=False)

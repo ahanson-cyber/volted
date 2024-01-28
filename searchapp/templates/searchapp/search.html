@@ -46,7 +46,10 @@
                     success: function (data) {
                         var resultsHtml = '';
                         for (var i = 0; i < data.length; i++) {
-                            resultsHtml += '<p>' + data[i] + '</p>';
+                            resultsHtml += '<p>';
+                            resultsHtml += '<h3>' + data[i].article_name + '</h3>';
+                            resultsHtml += '<a href="' + data[i].article_link + '" target="_blank">' + data[i].article_link + '</a>';
+                            resultsHtml += '</p>';
                         }
                         $("#searchResults").html(resultsHtml);
                     }
