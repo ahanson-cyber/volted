@@ -135,10 +135,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_REDIRECT_URL = "volt-search"
 
-# ELASTICSEARCH
 ELASTICSEARCH_DSL = {
     "default": {
-        "hosts": "localhost:9200",
+        "hosts": "http://localhost:9200",
     },
 }
 
